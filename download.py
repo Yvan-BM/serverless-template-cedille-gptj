@@ -7,7 +7,13 @@ from transformers import pipeline
 
 def download_model():
     # do a dry run of loading the huggingface model, which will download weights
-    pipeline('fill-mask', model='bert-base-uncased')
+    print("Tokenizer loading...")
+    transformers.AutoTokenizer.from_pretrained("Cedille/fr-boris")
+    print("done")
+
+    print("Model loading...")
+    transformers.AutoModelForCausalLM.from_pretrained("Cedille/fr-boris")
+    print("done")
 
 if __name__ == "__main__":
     download_model()
