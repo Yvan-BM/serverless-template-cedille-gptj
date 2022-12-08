@@ -8,7 +8,7 @@ import torch
 # Load your model to GPU as a global variable here using the variable name "model"
 # transformers.models.gptj.modeling_gptj.GPTJBlock = convert.GPTJBlock
 device = "cuda:0" if torch.cuda.is_available() else "cpu"
-device = "cpu"
+# device = "cpu"
 
 def init():
     global model
@@ -24,7 +24,7 @@ def init():
     
     if device == "cuda:0":
         print("Model passing on gpu...")
-        model.to(device)
+        model.cuda()
 
 # Inference is ran for every server call
 # Reference your preloaded global model variable here.
